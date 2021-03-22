@@ -1,6 +1,6 @@
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Properties;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -12,6 +12,7 @@ import javax.mail.internet.MimeMessage;
 public class Mailer {
 
   public static void send(String from, String password, String to, String sub, String msg) {
+
     //Get properties object
     Properties props = new Properties();
     props.put("mail.smtp.host", "smtp.gmail.com");
@@ -28,15 +29,15 @@ public class Mailer {
           }
         });
     //compose message
-      try {
-        MimeMessage message = new MimeMessage(session);
-        message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-        message.setSubject(sub);
-        message.setText(msg);
-        //send message
-        Transport.send(message);
-        System.out.println("message sent successfully");
-      } catch(MessagingException e){
+    try {
+      MimeMessage message = new MimeMessage(session);
+      message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+      message.setSubject(sub);
+      message.setText(msg);
+      //send message
+      Transport.send(message);
+      System.out.println("message sent successfully");
+    } catch (MessagingException e) {
       throw new RuntimeException(e);
     }
   }
