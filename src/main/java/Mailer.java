@@ -1,4 +1,6 @@
 import java.util.Properties;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -26,17 +28,16 @@ public class Mailer {
           }
         });
     //compose message
-    try {
-      MimeMessage message = new MimeMessage(session);
-      message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-      message.setSubject(sub);
-      message.setText(msg);
-      //send message
-      Transport.send(message);
-      System.out.println("message sent successfully");
-    } catch (MessagingException e) {
+      try {
+        MimeMessage message = new MimeMessage(session);
+        message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+        message.setSubject(sub);
+        message.setText(msg);
+        //send message
+        Transport.send(message);
+        System.out.println("message sent successfully");
+      } catch(MessagingException e){
       throw new RuntimeException(e);
     }
-
   }
 }
