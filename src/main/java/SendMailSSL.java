@@ -12,7 +12,7 @@ public class SendMailSSL {
     int counter = 0;
     AtomicReference<Integer> messageCount = new AtomicReference<>(counter);
     String message = "\n"
-        + "  My name is Russell Brazell, I am requesting the next available appointment to discuss my UI claim. I believe I filled out one check box wrong on one of the forms that I submitted. I am available any time for any appointment weather on the phone, video call, or in person if needed. Thank you in advance for your time and your assistance! \n"
+        + "  My name is Russell Brazell, I am requesting the next available appointment to discuss my UI claim. I believe I filled out one check box wrong on one of the forms that I submitted. I am available any time for any appointment weather on the phone, video call, or in person if needed. Also please not the phone number for confirming appeal appointments does NOT work. Thank you in advance for your time and your assistance! \n"
         + "\n"
         + " \n"
         + "\n"
